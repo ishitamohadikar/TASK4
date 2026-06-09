@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskStream | Modern To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <h2 class="brand">TaskStream</h2>
+            
+            <div class="sidebar-section">
+                <h3>Lists / Categories</h3>
+                <ul class="category-list" id="categoryList">
+                    <li class="category-item active" data-category="All">All Tasks</li>
+                    <li class="category-item" data-category="Personal">Personal</li>
+                    <li class="category-item" data-category="Work">Work</li>
+                    <li class="category-item" data-category="Shopping">Shopping</li>
+                </ul>
+                <div class="add-category-box">
+                    <input type="text" id="newCategoryInput" placeholder="New category...">
+                    <button id="addCategoryBtn">+</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Filters</h3>
+                <ul class="filter-list">
+                    <li class="filter-item active" id="filterAll">Show All</li>
+                    <li class="filter-item" id="filterPending">Pending</li>
+                    <li class="filter-item" id="filterCompleted">Completed</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="currentCategoryTitle">All Tasks</h1>
+                <p id="taskCountSummary">0 tasks remaining</p>
+            </header>
+
+            <form id="taskForm" class="task-form">
+                <div class="input-row">
+                    <input type="text" id="taskTextInput" required placeholder="What needs to be done?">
+                </div>
+                <div class="meta-row">
+                    <div class="meta-input">
+                        <label for="taskDateTime">Due Date/Time:</label>
+                        <input type="datetime-local" id="taskDateTime">
+                    </div>
+                    <div class="meta-input">
+                        <label for="taskCategorySelect">Assign List:</label>
+                        <select id="taskCategorySelect">
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="Shopping">Shopping</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-add-task">Add Task</button>
+                </div>
+            </form>
+
+            <ul class="task-list" id="taskList">
+                </ul>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-box">
+            <h3>Edit Task Details</h3>
+            <div class="form-group">
+                <label>Task Description</label>
+                <input type="text" id="editTextInput">
+            </div>
+            <div class="form-group">
+                <label>Due Date / Time</label>
+                <input type="datetime-local" id="editDateTimeInput">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="cancelEditBtn">Cancel</button>
+                <button class="btn-save" id="saveEditBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
